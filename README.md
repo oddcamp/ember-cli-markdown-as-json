@@ -1,26 +1,26 @@
 # ember-cli-markdown-as-json
+Simple addon that allows you to transform directories of markdown posts to ember-data models.
+Meant to be used in combination with [Prember](https://github.com/ef4/prember)
+and [Fastboot](https://ember-fastboot.com/) for completely static single-page apps.
 
-This README outlines the details of collaborating on this Ember addon.
+## Usage
+Install the addon:
+```bash
+ember install ember-cli-markdown-as-json
+```
 
-## Installation
+Then any markdown file (ending in .md) found in the `content/` directory, it will be accessible
+by the ember-data using the store's methods.
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-markdown-as-json`
-* `npm install`
+You can also override the defaultl look up path by adding in `config/environment.js`:
 
-## Running
+```javascript
+var ENV = {
+  'ember-cli-markdown-as-json': {
+    contentDirectory: './foobar/', //relative to root path, defaults in ./content/'
+  }
+}
+```
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/kollegorna/ember-cli-markdown-as-json.
