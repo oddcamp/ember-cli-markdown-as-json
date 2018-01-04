@@ -84,7 +84,6 @@ class BroccoliStaticSiteJson extends Plugin {
         mkdirp.sync(dirname(join(this.outputPath, this.options.contentFolder, file.path)));
       }
 
-      console.log("<ember-cli-markdown-as-json> Found file: " + file.path);
       const serialized = this.contentSerializer.serialize(file);
 
       writeFileSync(
@@ -113,11 +112,47 @@ class BroccoliStaticSiteJson extends Plugin {
       ),
       JSON.stringify({data: all})
     );
+    this._introspectionInfoFor(attributes);
+    this._informDeveloper();
   }
 
   _camelCaseToDash(str) {
     return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
   }
+
+  _introspectionInfoFor(attributes) {
+    writeFileSync(
+      join(
+        this.outputPath,
+        `introspection.json`,
+      ),
+      JSON.stringify({attributes})
+    );
+  }
+
+  _informDeveloper() {
+    if(!this.options.shutUp) {
+      console.log(
+        `<ember-cli-markdown-as-json> Markdown files found under specified folder can be fetched on: /${this.options.contentFolder}.json`
+      );
+      console.log(
+        '<ember-cli-markdown-as-json> Model is built based on the `attribute` option you gave in the config (otherwise default are used)'
+      );
+      console.log(
+        '<ember-cli-markdown-as-json> Model properties are exposed here: : /introspection.json}'
+      );
+      console.log(
+        '<ember-cli-markdown-as-json> However, nothing of those need to be manually fetched as this addon creates the model and adapter automatically.'
+      );
+      console.log(
+        '<ember-cli-markdown-as-json> Listed here for debugging purposes'
+      );
+      console.log(
+        "<ember-cli-markdown-as-json> Oh and btw if you want me to shut up, just add `shutUp: true` in the addon's config."
+      );
+    }
+  }
+
 }
 
 module.exports = BroccoliStaticSiteJson;

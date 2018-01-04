@@ -16,6 +16,7 @@ module.exports = {
     var defaultOptions = {
       folder: 'content',
       contentFolder: 'content',
+      shutUp: false,
     }
 
     for (var option in defaultOptions) {

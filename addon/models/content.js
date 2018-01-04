@@ -1,4 +1,7 @@
 import DS from 'ember-data';
+import ENV from '../config/environment';
+
+console.log(ENV);
 
 export default DS.Model.extend({
   content: DS.attr('string'),
