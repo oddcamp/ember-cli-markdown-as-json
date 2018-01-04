@@ -11,3 +11,4 @@ export default DS.JSONAPIAdapter.extend({
     return this._super(...arguments);
   },
 });
+
