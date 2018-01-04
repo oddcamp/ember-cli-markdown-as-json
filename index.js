@@ -5,7 +5,6 @@ const BroccoliMergeTrees = require('broccoli-merge-trees');
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-    console.log('helloo');
 const jsonTree =  new StaticSiteJson('content', {
   contentFolder: 'content'
 });
@@ -13,7 +12,6 @@ const jsonTree =  new StaticSiteJson('content', {
 module.exports = {
   name: 'ember-cli-markdown-as-json',
   isDevelopingAddon: function() {
-    console.log('hey');
     return true;
   },
   config: function (env, baseConfig) {
@@ -37,10 +35,12 @@ module.exports = {
     this.appVersionOptions = options;
   },
 
-  treeForApp: function (tree) {
-    console.log('hello');
+  postprocessTree(type, tree) {
+    if (type !== 'all' || this.app.options.__is_building_fastboot__) {
+      return tree;
+    }
+    console.log(type);
     return new BroccoliMergeTrees([tree, ...[jsonTree]]);
-  },
+  }
 
-  treeFor: function() {}
 };
