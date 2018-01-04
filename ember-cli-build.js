@@ -1,14 +1,7 @@
 /* eslint-env node */
 'use strict';
 
-const StaticSiteJson = require('./broccoli/markdown-to-json');
-const BroccoliMergeTrees = require('broccoli-merge-trees');
-
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-
-const jsonTree =  new StaticSiteJson('content', {
-  contentFolder: 'content'
-});
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {

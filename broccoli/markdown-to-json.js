@@ -19,53 +19,18 @@ const {
   join,
 } = require('path');
 
-function camelCaseToDash(str) {
-  return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
-}
-
-/*
-const ContentSerializer = new Serializer('content', {
-  id: 'path',
-  attributes: [
-    '__content',
-    'title',
-    'subtitle',
-  ],
-  keyForAttribute(attr) {
-    switch (attr) {
-      case '__content':
-        return 'content';
-      default:
-        return attr;
-    }
-  },
-});
-*/
-
-//need to fux contentSerializer
-//need to get multiple sets of content files
-function subpageUrls(parentUrl, currentPage, childPages) {
-  if (currentPage && parentUrl) {
-    // eslint-disable-next-line no-param-reassign
-    currentPage.url = `${parentUrl}/${currentPage.url}`;
-  }
-
-  if (childPages) {
-    childPages.forEach((page) => {
-      subpageUrls(currentPage ? currentPage.url : null, page, page.pages);
-    });
-  }
-}
-
 class BroccoliStaticSiteJson extends Plugin {
   constructor(folder, options) {
     // tell broccoli which "nodes" we're watching
     super([folder], options);
 
+    console.log(folder);
     this.options = assign({}, {
       folder,
       contentFolder: 'content',
     }, options);
+    console.log(options);
+    console.log(this.options);
 
     Plugin.call(this, [folder], {
       annotation: options.annotation,
@@ -73,6 +38,7 @@ class BroccoliStaticSiteJson extends Plugin {
   }
 
   build() {
+    var _this = this;
     // build content folder if it doesnt exist
     if (!existsSync(join(this.outputPath, this.options.contentFolder))) {
       mkdirp.sync(join(this.outputPath, this.options.contentFolder));
@@ -106,7 +72,7 @@ class BroccoliStaticSiteJson extends Plugin {
           case '__content':
             return 'content';
           default:
-            return camelCaseToDash(attr);
+            return _this._camelCaseToDash(attr);
         }
       },
     });
@@ -121,7 +87,7 @@ class BroccoliStaticSiteJson extends Plugin {
         mkdirp.sync(dirname(join(this.outputPath, this.options.contentFolder, file.path)));
       }
 
-      console.log(file.path);
+      console.log("<ember-cli-markdown-as-json> Found file: " + file.path);
       const serialized = this.contentSerializer.serialize(file);
 
       writeFileSync(
@@ -150,6 +116,10 @@ class BroccoliStaticSiteJson extends Plugin {
       ),
       JSON.stringify({data: all})
     );
+  }
+
+  _camelCaseToDash(str) {
+    return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
   }
 }
 
