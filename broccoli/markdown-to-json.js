@@ -24,13 +24,10 @@ class BroccoliStaticSiteJson extends Plugin {
     // tell broccoli which "nodes" we're watching
     super([folder], options);
 
-    console.log(folder);
     this.options = assign({}, {
       folder,
       contentFolder: 'content',
     }, options);
-    console.log(options);
-    console.log(this.options);
 
     Plugin.call(this, [folder], {
       annotation: options.annotation,
