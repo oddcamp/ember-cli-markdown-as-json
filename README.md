@@ -3,24 +3,7 @@ Simple addon that allows you to transform directories of markdown posts to ember
 Meant to be used in combination with [Prember](https://github.com/ef4/prember)
 and [Fastboot](https://ember-fastboot.com/) for completely static single-page apps.
 
-## Installation
-Install the addon:
-```bash
-ember install ember-cli-markdown-as-json
-```
-
-Then any markdown file (ending in .md) found in the `content/` directory, it will be accessible
-by the ember-data using the store's methods.
-
-You can also override the defaultl look up path by adding in `config/environment.js`:
-
-```javascript
-var ENV = {
-  'ember-cli-markdown-as-json': {
-    contentDirectory: './foobar/', //relative to root path, defaults in ./content/'
-  }
-}
-```
+For installation jump in the [install](#install) section.
 
 ## Usage
 Now on your specified directory (default `content/` under root dir) you can start adding markdown (.md) files.
@@ -95,6 +78,43 @@ If you want more advanced stuff, you can check [ember-remarkable](https://github
 In fact, it's possible to write plain HTMLBars code inside your markdown, or call a component and it will be rendered correctly.
 
 Use with care though :P
+
+
+## Installation
+Install the addon:
+```bash
+ember install ember-cli-markdown-as-json
+```
+
+You probably want to install [ember-remarkable](https://github.com/johnotander/ember-remarkable) as well:
+```bash
+ember install ember-remarkable
+```
+
+By default the addon looks in the `content/` dir inside the root directory. However,
+you can change that through the config (`config/environment.js`) of your app.
+In the same config you need to specify any attributes you expect your model to have,
+based on the [frontmatter](https://jekyllrb.com/docs/frontmatter/) that you use in your .md files:
+
+```javascript
+var ENV = {
+  'ember-cli-markdown-as-json': {
+    contentDirectory: 'foobar', //relative to root path, defaults in `content`',
+    attributes: {
+      index: 'number', //addon creates `index: DS.attr('number') inside the Content model
+      isIndex: 'boolean',
+      linkName: 'string',
+      name: 'string',
+      path: 'string',
+      subtitle: 'string',
+      title: 'string',
+      url: 'string'
+    }
+  }
+}
+```
+(`attributes` can also be an array but then everything is declared as `string` in the model)
+
 
 ## Credits
 I should credit [@mansona](https://github.com/mansona) (Chris Manson) for
