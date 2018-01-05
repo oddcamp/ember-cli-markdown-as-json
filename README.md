@@ -96,5 +96,11 @@ In fact, it's possible to write plain HTMLBars code inside your markdown, or cal
 
 Use with care though :P
 
+## Credits
+I should credit [@mansona](https://github.com/mansona) (Chris Manson) for
+his [original code](https://github.com/stonecircle/broccoli-static-site-json/blob/master/index.js) and help of
+[Broccoli plugin](https://github.com/kollegorna/ember-cli-markdown-as-json/blob/master/broccoli/markdown-to-json.js) that 
+parses, converts and adds the markdowns as JSON in Broccoli's tree
+
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/kollegorna/ember-cli-markdown-as-json.
