@@ -6,7 +6,7 @@ and [Fastboot](https://ember-fastboot.com/) for completely static single-page ap
 For installation jump in the [install](#installation) section.
 
 ## Usage
-Now on your specified directory (default `content/` under root dir) you can start adding markdown (.md) files.
+On `content/` under root dir (scroll down to see how you can modify the defaults) you can start adding markdown (.md) files.
 What is cool though is that each markdown file can have a
 [frontmatter](https://jekyllrb.com/docs/frontmatter/) section, where you can define key-values.
 So for example, a file can look like this:
@@ -73,12 +73,12 @@ It should be noted that the addon supports live reloading which means that you c
 restarting the server :)
 
 Also using Prember and Fastboot you can have a complete static site, regardless if you use ember-data in development mode for productivity :)
+
 ## Advanced stuff
 If you want more advanced stuff, you can check [ember-remarkable](https://github.com/johnotander/ember-remarkable)'s `html` and `dynamic` options.
 In fact, it's possible to write plain HTMLBars code inside your markdown, or call a component and it will be rendered correctly.
 
 Use with care though :P
-
 
 ## Installation
 Install the addon:
