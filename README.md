@@ -93,6 +93,7 @@ Also using Prember and Fastboot you can have a complete static site, regardless 
 ## Advanced stuff
 If you want more advanced stuff, you can check [ember-remarkable](https://github.com/johnotander/ember-remarkable)'s `html` and `dynamic` options.
 In fact, it's possible to write plain HTMLBars code inside your markdown, or call a component and it will be rendered correctly.
+
 Use with care though :P
 
 ## Contributing
