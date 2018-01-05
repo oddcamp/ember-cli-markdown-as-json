@@ -118,6 +118,11 @@ class BroccoliStaticSiteJson extends Plugin {
   }
 
   _introspectionInfoFor(attributes) {
+    if(!this.options.shutUp) {
+      console.log(
+        `<ember-cli-markdown-as-json> Attributes found in .md files: ${attributes.filter(i => i !== '__content').sort()}`
+      );
+    }
     writeFileSync(
       join(
         this.outputPath,

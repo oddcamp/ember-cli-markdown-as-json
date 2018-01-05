@@ -45,7 +45,8 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "loader.js": "^4.2.3",
-    "ember-get-config": "0.2.3"
+    "ember-get-config": "0.2.3",
+    "broccoli-file-creator": "1.1.1"
   },
   "engines": {
     "node": "6.* || >= 7.*"
