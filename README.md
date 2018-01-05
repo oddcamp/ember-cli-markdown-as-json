@@ -1,7 +1,7 @@
 # ember-cli-markdown-as-json
 Simple addon that allows you to transform directories of markdown posts to ember-data models.
 Meant to be used in combination with [Prember](https://github.com/ef4/prember)
-and [Fastboot](https://ember-fastboot.com/) for completely static single-page apps.
+and [Fastboot](https://ember-fastboot.com/) for completely static single-page apps, drived by markdown files.
 
 For installation jump in the [install](#install) section.
 
