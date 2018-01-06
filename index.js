@@ -1,6 +1,6 @@
 'use strict';
 
-const StaticSiteJson = require('./broccoli/markdown-to-json');
+const StaticSiteJson = require('broccoli-static-site-json');
 const BroccoliMergeTrees = require('broccoli-merge-trees');
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
@@ -34,7 +34,17 @@ module.exports = {
     }
 
     const jsonTree =  new StaticSiteJson(
-      this.configOptions.folder, this.configOptions
+      'content', {
+        collections: [
+          {
+            src: 'content',
+            output: 'content.json',
+            attributes: this.configOptions.attributes
+          }
+        ],
+        attributes: ['title', 'subtitle'],
+        contentFolder: ''
+      }
     );
 
     return new BroccoliMergeTrees([tree, ...[jsonTree]]);
