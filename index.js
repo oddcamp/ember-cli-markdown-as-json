@@ -33,16 +33,22 @@ module.exports = {
       return tree;
     }
 
+    let attributes = [];
+    if (Array.isArray(this.configOptions.attributes)) {
+      attributes = this.configOptions.attributes;
+    } else {
+      attributes = Object.keys(this.configOptions.attributes);
+    }
+
     const jsonTree =  new StaticSiteJson(
       'content', {
         collections: [
           {
             src: 'content',
             output: 'content.json',
-            attributes: this.configOptions.attributes
           }
         ],
-        attributes: ['title', 'subtitle'],
+        attributes,
         contentFolder: ''
       }
     );
