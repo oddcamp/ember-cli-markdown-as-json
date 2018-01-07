@@ -2,6 +2,7 @@
 Simple addon that allows you to transform directories of markdown posts to ember-data models.
 Meant to be used in combination with [Prember](https://github.com/ef4/prember)
 and [Fastboot](https://ember-fastboot.com/) for completely static single-page apps, drived by markdown files.
+It uses [broccoli-static-site-json](https://github.com/stonecircle/broccoli-static-site-json) underneath.
 
 For installation jump in the [install](#installation) section.
 
@@ -117,10 +118,9 @@ var ENV = {
 
 
 ## Credits
-I should credit [@mansona](https://github.com/mansona) (Chris Manson) for
-his [original code](https://github.com/stonecircle/broccoli-static-site-json/blob/master/index.js) and help of
-[Broccoli plugin](https://github.com/kollegorna/ember-cli-markdown-as-json/blob/master/broccoli/markdown-to-json.js) that 
-parses, converts and adds the markdowns as JSON in Broccoli's tree
+I should credit [@mansona](https://github.com/mansona) (Chris Manson) and [@serenaf](https://github.com/serenaf)
+for their help with the [broccoli-static-site-json](https://github.com/stonecircle/broccoli-static-site-json)
+which basically does all the dirty job of parsing, converting markdowns to JSON and fnally adding them to the Broccoli's output tree.
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/kollegorna/ember-cli-markdown-as-json.
