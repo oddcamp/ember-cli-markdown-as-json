@@ -1,12 +1,11 @@
 {
   "name": "ember-cli-markdown-as-json",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
