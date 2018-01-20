@@ -24,8 +24,7 @@ module.exports = {
   config: function (env, baseConfig) {
     var options = baseConfig['ember-cli-markdown-as-json'] || {};
 
-    options = getConfig(options);
-    this.configOptions = options;
+    this.configOptions = getConfig(options);
   },
 
   postprocessTree(type, tree) {
@@ -41,15 +40,10 @@ module.exports = {
     }
 
     const jsonTree =  new StaticSiteJson(
-      'content', {
-        collections: [
-          {
-            src: 'content',
-            output: 'content.json',
-          }
-        ],
+      this.configOptions.folder, {
+        contentFolder: this.configOptions.contentFolder,
+        collections: this.configOptions.collections,
         attributes,
-        contentFolder: ''
       }
     );
 

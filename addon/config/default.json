@@ -1,5 +1,11 @@
 {
   "folder": "content",
-  "contentFolder": "content",
-  "shutUp": false
+  "contentFolder": "foo",
+  "shutUp": false,
+  "collections": [
+    {
+      "src": "content",
+      "output": "foo.json"
+    }
+  ]
 }
