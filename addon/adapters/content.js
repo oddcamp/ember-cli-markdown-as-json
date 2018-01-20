@@ -7,7 +7,6 @@ export default DS.JSONAPIAdapter.extend({
     const config = Ember.getOwner(this).resolveRegistration(
       'config:environment'
     )['ember-cli-markdown-as-json'];
-    console.log(config);
 
     if (requestType === 'queryRecord') {
       return `/${modelName}/${query.path}.json`;
