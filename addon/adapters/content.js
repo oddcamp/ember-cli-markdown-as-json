@@ -4,6 +4,7 @@ import DS from 'ember-data';
 //if none, then return the default content.json
 export default DS.JSONAPIAdapter.extend({
   buildURL(modelName, id, snapshot, requestType, query) {
+    debugger;
     const config = Ember.getOwner(this).resolveRegistration(
       'config:environment'
     )['ember-cli-markdown-as-json'];
