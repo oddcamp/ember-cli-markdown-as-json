@@ -121,6 +121,3 @@ var ENV = {
 I should credit [@mansona](https://github.com/mansona) (Chris Manson) and [@serenaf](https://github.com/serenaf)
 for their help with the [broccoli-static-site-json](https://github.com/stonecircle/broccoli-static-site-json)
 which basically does all the dirty job of parsing, converting markdowns to JSON and fnally adding them to the Broccoli's output tree.
-
-## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/kollegorna/ember-cli-markdown-as-json.

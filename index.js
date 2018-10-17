@@ -17,7 +17,7 @@ function getConfig(options) {
 }
 
 module.exports = {
-  name: 'ember-cli-markdown-as-json',
+  name: require('./package').name
   isDevelopingAddon: function() {
     return true;
   },
