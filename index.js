@@ -17,7 +17,7 @@ function getConfig(options) {
 }
 
 module.exports = {
-  name: require('./package').name
+  name: require('./package').name,
   isDevelopingAddon: function() {
     return true;
   },
