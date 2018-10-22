@@ -28,10 +28,6 @@ module.exports = {
   },
 
   postprocessTree(type, tree) {
-    if (type !== 'all' || this.app.options.__is_building_fastboot__) {
-      return tree;
-    }
-
     let attributes = [];
     if (Array.isArray(this.configOptions.attributes)) {
       attributes = this.configOptions.attributes;
@@ -47,6 +43,6 @@ module.exports = {
       }
     );
 
-    return new BroccoliMergeTrees([tree, ...[jsonTree]]);
+    return new BroccoliMergeTrees([tree, ...[jsonTree]], {overwrite: true});
   }
 };
